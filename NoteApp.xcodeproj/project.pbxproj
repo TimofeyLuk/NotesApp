@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		434A7CDE2832591F00CEFF18 /* NoteAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A7CDD2832591F00CEFF18 /* NoteAppApp.swift */; };
+		434A7CDE2832591F00CEFF18 /* NoteApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A7CDD2832591F00CEFF18 /* NoteApp.swift */; };
 		434A7CE02832591F00CEFF18 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 434A7CDF2832591F00CEFF18 /* ContentView.swift */; };
 		434A7CE22832592400CEFF18 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434A7CE12832592400CEFF18 /* Assets.xcassets */; };
 		434A7CE52832592400CEFF18 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 434A7CE42832592400CEFF18 /* Preview Assets.xcassets */; };
@@ -17,7 +17,7 @@
 
 /* Begin PBXFileReference section */
 		434A7CDA2832591F00CEFF18 /* NoteApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		434A7CDD2832591F00CEFF18 /* NoteAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteAppApp.swift; sourceTree = "<group>"; };
+		434A7CDD2832591F00CEFF18 /* NoteApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteApp.swift; sourceTree = "<group>"; };
 		434A7CDF2832591F00CEFF18 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		434A7CE12832592400CEFF18 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		434A7CE42832592400CEFF18 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -55,7 +55,7 @@
 		434A7CDC2832591F00CEFF18 /* NoteApp */ = {
 			isa = PBXGroup;
 			children = (
-				434A7CDD2832591F00CEFF18 /* NoteAppApp.swift */,
+				434A7CDD2832591F00CEFF18 /* NoteApp.swift */,
 				434A7CDF2832591F00CEFF18 /* ContentView.swift */,
 				434A7CE12832592400CEFF18 /* Assets.xcassets */,
 				434A7CE62832592400CEFF18 /* Persistence.swift */,
@@ -145,7 +145,7 @@
 			files = (
 				434A7CE72832592400CEFF18 /* Persistence.swift in Sources */,
 				434A7CE02832591F00CEFF18 /* ContentView.swift in Sources */,
-				434A7CDE2832591F00CEFF18 /* NoteAppApp.swift in Sources */,
+				434A7CDE2832591F00CEFF18 /* NoteApp.swift in Sources */,
 				434A7CEA2832592400CEFF18 /* NoteApp.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

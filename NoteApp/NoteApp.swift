@@ -1,5 +1,5 @@
 //
-//  NoteAppApp.swift
+//  NoteApp.swift
 //  NoteApp
 //
 //  Created by Тимофей Лукашевич on 16.05.22.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 @main
-struct NoteAppApp: App {
+struct NoteApp: App {
     let persistenceController = PersistenceController.shared
 
     var body: some Scene {
