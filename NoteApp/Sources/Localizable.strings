@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  NoteApp
+
+  Created by Тимофей Лукашевич on 18.05.22.
+  
+*/
+
+"Notes" = "Notes";
+"Add folder" = "Add folder";
+"Add note" = "Add note";
+"Empty note" = "Empty note";
