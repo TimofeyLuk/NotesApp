@@ -14,8 +14,11 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
+            let newItem = Note(context: viewContext)
             newItem.timestamp = Date()
+            newItem.text = NSMutableAttributedString(
+                string: String.randomString(length: Int.random(in: 20...1000))
+            )
         }
         do {
             try viewContext.save()
