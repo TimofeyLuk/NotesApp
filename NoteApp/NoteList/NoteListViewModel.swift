@@ -7,30 +7,31 @@
 
 import SwiftUI
 import CoreData
+import Combine
 
-final class NoteListViewModel {
-    
-    private let viewContext: NSManagedObjectContext
+final class NoteListViewModel: ObservableObject {
+    private let database = Database.shared
+    private var cancellables = Set<AnyCancellable>()
+    @Published var notes: [Note] = []
 
-    init(context: NSManagedObjectContext ) {
-        viewContext = context
+    init() {
+        database.$notes
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] notes in
+                self?.notes = notes
+            }
+            .store(in: &cancellables)
     }
  
     var newNoteViewModel: NoteEditorViewModel {
-        return NoteEditorViewModel(context: viewContext, note: nil)
+        return NoteEditorViewModel(note: nil)
     }
     
     func deleteNote(_ note: Note) {
-        viewContext.delete(note)
-        do {
-            try viewContext.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+        database.deleteNote(note)
     }
     
     func editViewModel(forNote note: Note) -> NoteEditorViewModel {
-        NoteEditorViewModel(context: viewContext, note: note)
+        NoteEditorViewModel(note: note)
     }
 }
