@@ -31,7 +31,6 @@ struct NoteEditorView_Previews: PreviewProvider {
             string: String.randomString(length: 20)
         )
         let viewModel = NoteEditorViewModel(
-            context: context,
             note: note
         )
         return NoteEditorView(viewModel: viewModel)

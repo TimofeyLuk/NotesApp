@@ -10,17 +10,12 @@ import CoreData
 
 struct NoteListView: View {
 
-    @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Note.timestamp, ascending: false)],
-        animation: .default
-    )
-    private var notes: FetchedResults<Note>
-    let viewModel: NoteListViewModel
+    @ObservedObject var viewModel: NoteListViewModel
 
     var body: some View {
         NavigationView {
             List {
-                ForEach(notes) { note in
+                ForEach(viewModel.notes) { note in
                     NavigationLink {
                         NoteEditorView(
                             viewModel: viewModel.editViewModel(forNote: note)
@@ -53,24 +48,17 @@ struct NoteListView: View {
 
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
-            offsets.map { notes[$0] }.forEach { viewModel.deleteNote($0) }
+            offsets.map { viewModel.notes[$0] }.forEach { viewModel.deleteNote($0) }
         }
     }
 
 }
 
 
-
-
-
-
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         NoteListView(
-            viewModel: NoteListViewModel(
-                context: PersistenceController.preview.container.viewContext
-            )
+            viewModel: NoteListViewModel()
         )
-        .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }

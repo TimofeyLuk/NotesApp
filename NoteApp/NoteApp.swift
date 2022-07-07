@@ -13,10 +13,9 @@ struct NoteApp: App {
 
     var body: some Scene {
         WindowGroup {
-            let viewContext = persistenceController.container.viewContext
-            let noteListViewModel = NoteListViewModel(context: viewContext)
+            let noteListViewModel = NoteListViewModel()
             NoteListView(viewModel: noteListViewModel)
-                .environment(\.managedObjectContext, viewContext)
         }
     }
 }
+

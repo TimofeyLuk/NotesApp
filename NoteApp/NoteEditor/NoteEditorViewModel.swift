@@ -10,13 +10,12 @@ import CoreData
 
 final class NoteEditorViewModel: ObservableObject {
 
-    private let viewContext: NSManagedObjectContext
     private(set) var noteRichText = NSMutableAttributedString()
     private let note: Note?
     private(set) var attributedTextFieldViewModel: AttributedTextFieldViewModel
+    private let database = Database.shared
     
-    init(context: NSManagedObjectContext, note: Note?) {
-        self.viewContext = context
+    init(note: Note?) {
         self.note = note
         if let noteText = note?.text as? NSMutableAttributedString {
             noteRichText = noteText.mutableCopy() as! NSMutableAttributedString
@@ -25,17 +24,8 @@ final class NoteEditorViewModel: ObservableObject {
     }
 
     func saveNote() {
-        let  noteForSave = note ?? Note(context: viewContext)
-        noteForSave.text = noteRichText
-        noteForSave.timestamp = Date()
-        DispatchQueue.main.async { [weak self] in
-            do {
-                try self?.viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
+        let  noteForSave = note ?? database.createNote()
+        database.saveNote(noteForSave, text: noteRichText)
     }
     
     func makeTextField() -> AttributedTextField {
